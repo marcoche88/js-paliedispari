@@ -130,5 +130,17 @@ function isPalindrome(word) {
         return true;
     }
     return false;
+}
+
+// BONUS
+// funzione per verificare se la frase è palindroma
+
+function isPalindromePhrase(phrase) {
+    var phraseArray = phrase.split(" ");
+    var phraseNoSpace = phraseArray.join("");
+
+    return isPalindrome(phraseNoSpace);
 
 }
+
+console.log(isPalindromePhrase("I topi non avevano nipoti"));

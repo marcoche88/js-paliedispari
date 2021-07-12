@@ -85,7 +85,7 @@ Creare una funzione per capire se la parola inserita è palindroma
 3- prendere la parola inserita dall'utente
 4- usare una funzione per capire se la parola è palindroma:
    a- prendere la parola e separare le lettere in un array
-   b- invertire l'array e poi trasformarlo in una nuova stringa
+   b- invertire con un for la parola iniziale
    c- vedere se la parola invertita è uguale a quella iniziale
 5- stampare il risultato
 */
@@ -119,11 +119,11 @@ function isPalindrome(word) {
     // separare la parola in un array
     var wordArray = word.split("");
 
-    // invertire l'array
-    wordArray.reverse();
-
-    // trasformare array in stringa
-    var wordReverse = wordArray.join("");
+    // invertire la parola iniziale
+    var wordReverse = "";
+    for (var i = wordArray.length - 1; i >= 0; i--) {
+        wordReverse += wordArray[i];
+    }
 
     // verificare se le due parole sono uguali
     if (word.toLowerCase() === wordReverse.toLowerCase()) {

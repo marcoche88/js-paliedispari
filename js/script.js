@@ -117,7 +117,7 @@ wordButton.addEventListener("click", function () {
 // funzione per verificare se una parola è palindroma
 function isPalindrome(word) {
     // separare la parola in un array
-    var wordArray = word.split("");
+    var wordArray = word.trim().split("");
 
     // invertire la parola iniziale
     var wordReverse = "";
@@ -126,7 +126,7 @@ function isPalindrome(word) {
     }
 
     // verificare se le due parole sono uguali
-    if (word.toLowerCase() === wordReverse.toLowerCase()) {
+    if (word.trim().toLowerCase() === wordReverse.trim().toLowerCase()) {
         return true;
     }
     return false;
@@ -136,7 +136,7 @@ function isPalindrome(word) {
 // funzione per verificare se la frase è palindroma
 
 function isPalindromePhrase(phrase) {
-    var phraseArray = phrase.split(" ");
+    var phraseArray = phrase.trim().split(" ");
     var phraseNoSpace = phraseArray.join("");
 
     return isPalindrome(phraseNoSpace);

@@ -105,6 +105,7 @@ wordButton.addEventListener("click", function () {
         return;
     }
 
+    // vedere con la funzione se la parola è palindroma o no e stampare risultato
     if (isPalindrome(userWord)) {
         result.innerText = "La parola " + userWord.toUpperCase() + " è palindroma";
     } else {

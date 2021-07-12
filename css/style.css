@@ -11,3 +11,7 @@ body {
 .input, .output {
     margin: 20px;
 }
+
+h1 {
+    margin: 10px 0;
+}

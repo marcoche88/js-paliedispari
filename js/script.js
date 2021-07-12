@@ -1,8 +1,4 @@
 /*
-Palindroma
-Chiedere all’utente di inserire una parola
-Creare una funzione per capire se la parola inserita è palindroma
-
 Pari e Dispari
 L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
 Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
@@ -35,6 +31,11 @@ playButton.addEventListener("click", function () {
     var userChoice = evenOdd.value;
     var userNumber = number.value;
 
+    // validazione numero utente
+    if (!userNumber || isNaN(userNumber) || userNumber < 1 || userNumber > 5) {
+        return;
+    }
+
     // generare numero random cpu da 1 a 5
     var cpuNumber = numberGenerator(5, 1);
 
@@ -57,15 +58,76 @@ playButton.addEventListener("click", function () {
 
 })
 
-
+// funzione per numeri random
 function numberGenerator(max, min) {
     max++;
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// funzione per numeri pari o dispari
 function isEven(num) {
     if (num % 2 === 0) {
         return true;
     }
     return false;
+}
+
+
+/*
+Palindroma
+Chiedere all’utente di inserire una parola
+Creare una funzione per capire se la parola inserita è palindroma
+*/
+
+/*
+1- selezionare input e bottone
+2- aggiungere evento al click del bottone
+3- prendere la parola inserita dall'utente
+4- usare una funzione per capire se la parola è palindroma:
+   a- prendere la parola e separare le lettere in un array
+   b- invertire l'array e poi trasformarlo in una nuova stringa
+   c- vedere se la parola invertita è uguale a quella iniziale
+5- stampare il risultato
+*/
+
+// variabili
+var wordInput = document.getElementById("word");
+var wordButton = document.getElementById("button-word");
+var result = document.getElementById("result");
+
+// aggiungere evento al click del bottone verifica
+wordButton.addEventListener("click", function () {
+    // prendere il valore dell'input
+    var userWord = wordInput.value;
+
+    // controllo input
+    if (!userWord || userWord.trim() === "") {
+        return;
+    }
+
+    if (isPalindrome(userWord)) {
+        result.innerText = "La parola " + userWord.toUpperCase() + " è palindroma";
+    } else {
+        result.innerText = "La parola " + userWord.toUpperCase() + " non è palindroma";
+    }
+
+})
+
+// funzione per verificare se una parola è palindroma
+function isPalindrome(word) {
+    // separare la parola in un array
+    var wordArray = word.split("");
+
+    // invertire l'array
+    wordArray.reverse();
+
+    // trasformare array in stringa
+    var wordReverse = wordArray.join("");
+
+    // verificare se le due parole sono uguali
+    if (word.toLowerCase() === wordReverse.toLowerCase()) {
+        return true;
+    }
+    return false;
+
 }
